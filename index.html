@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charleston D&amp;D Guildhall</title>
+    <link rel="icon" href="images/logo.jpg" type="image/x-icon">
+    <meta name="description" content="Welcome to the Charleston D&D Guildhall, your hub for all things Dungeons & Dragons in Charleston, South Carolina.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="images/logo.jpg" alt="Charleston D&D Guildhall Logo" class="logo">
+        <div class="header-text">
+            <h1>Charleston D&amp;D Guildhall</h1>
+            <p>Your hub for all things Dungeons & Dragons in Charleston, South Carolina</p>
+        </div>
+        <img src="images/logo.jpg" alt="Charleston D&D Guildhall Logo" class="logo">
+    </header>
+    <nav>
+        <ul>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="store.html">Homebrew</a></li>
+            <li><a href="games.html">Join a Game</a></li>
+            <li><a href="events.html">Community Events</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div>
+            <h1>Welcome to The Charleston D&amp;D Guildhall</h1>
+            <p>Your go-to hub for everything Dungeons & Dragons in the Charleston area. Whether you're a battle-hardened Dungeon Master or a first-time adventurer, we've got events, game nights, and exclusive merchandise tailored for every kind of hero.</p>
+        </div>
+        <div class="banner-carousel">
+            <div class="banner-slide active">
+                <a href="dmmonth.html">
+                    <h2>🔥 Featured Member 🔥</h2>
+                    <img src="images/alex.jpg" alt="Alex, our Dungeon Master of the Month" class="bannerpic">
+                    <p>Meet Alex, our Dungeon Master of the Month!</p>
+                </a>
+            </div>
+            <div class="banner-slide">
+                <a href="games.html">
+                    <h2>🛡️ Game Spotlight 🛡️</h2>
+                    <img src="images/dragonsofthelowcountry.jpg" alt="Dragons of the Lowcountry Campaign" class="bannerpic">
+                    <p>Check out our new campaign: "Dragons of the Lowcountry"</p>
+                </a>
+            </div>
+            <div class="banner-slide">
+                <a href="store.html?search=Charleston%20Nights%20Dice%20Set">
+                    <h2>🎲 Top Selling Item 🎲</h2>
+                    <img src="images/dice/charlestonnights.jpg" alt="Charleston Nights Dice Set" class="bannerpic">
+                    <p>Dice Set: "Charleston Nights" - Available now!</p>
+                </a>
+            </div>
+            <div class="banner-slide">
+                <a href="events.html">
+                    <h2>🔥 Monday Night One-Shots 🔥</h2>
+                    <img src="images/oneshot.jpg" alt="Monday Night One-Shots" class="bannerpic">
+                    <p>Join us every Monday at Final Dungeon for single-session adventures, perfect for new players and seasoned veterans alike!</p>
+                </a>
+            </div>
+            <div class="banner-slide">
+                <a href="events.html">
+                <h2>🛡️ Pathfinder Society Monthly Game Night 🛡️</h2>
+                <img src="images/PFSociety_Logo.jpg" alt="Pathfinder Society Monthly Game Night" class="bannerpic">
+                <p>Join us for our monthly game night on the second Sunday of every month!</p></a>
+            </div>
+            <div class="banner-slide">
+                <a href="games.html">
+                <h2>🎲 Campaign Meetups 🎲</h2>
+                <img src="images/campaign.jpg" alt="Campaign Meetups" class="bannerpic">
+                <p>Looking for a long-term group? We help match players with open tables based on preferred playstyle and experience level.</p></a>
+            </div>
+        <div class="banner-dots" id="banner-dots"></div>
+        </div>
+        <h2>Latest News</h2>
+        <ul class="news-list">
+            <li><strong>May 22, 2025:</strong> New campaign "Dragons of the Lowcountry" starts this weekend!</li>
+            <li><strong>May 8, 2025:</strong> Join us for our monthly game night on May 10th!</li>
+            <li><strong>May 1, 2025:</strong> Check out our new merchandise in the store section!</li>
+        </ul>
+        <h2>Upcoming Events</h2>
+        <ul class="events-list">
+            <li><strong>March 25, 2025:</strong> Community Meetup - Share your stories and strategies!</li>
+            <li><strong>April 1, 2025:</strong> Special Event: "The Rise of the Dragon Queen" campaign launch</li>
+            <li><strong>April 10, 2025:</strong> Charity Game Night - All proceeds go to local charities</li>
+        </ul>
+        <div class="section">
+            <h2>Find a Game</h2>
+            <p>Browse our <a href="games.html"><strong>Game Finder Board</strong></a> to find open spots posted by local Dungeon Masters.</p>
+        </div>
+        <div class="section">
+            <h2>Merchandise & Resources</h2>
+            <p>Check out our selection of dice sets, miniatures, and downloadable resources to enhance your adventure.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Melissa A. Harness</p>
+        <p>All rights reserved.</p>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.banner-slide');
+        const dotsContainer = document.getElementById('banner-dots');
+        let current = 0;
+        const total = slides.length;
+
+        // Create dots
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('span');
+            dot.className = 'banner-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('data-slide', i);
+            dotsContainer.appendChild(dot);
+        }
+        const dots = document.querySelectorAll('.banner-dot');
+
+        function showSlide(idx) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === idx);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === idx);
+            });
+        }
+
+        // Auto-scroll every 4 seconds
+        let interval = setInterval(nextSlide, 4000);
+
+        function nextSlide() {
+            current = (current + 1) % total;
+            showSlide(current);
+        }
+
+        // Dot click event
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', function() {
+                current = i;
+                showSlide(current);
+                resetInterval();
+            });
+        });
+
+        function resetInterval() {
+            clearInterval(interval);
+            interval = setInterval(nextSlide, 4000);
+        }
+
+        showSlide(current);
+    });
+    </script>
+    <script>
+    fetch('events.json')
+        .then(res => res.json())
+        .then(events => {
+            // Get today's date in YYYY-MM-DD
+            const today = new Date();
+            const todayStr = today.toISOString().split('T')[0];
+
+            // Filter for future events, sort by date
+            const upcoming = events
+                .filter(ev => ev.date >= todayStr)
+                .sort((a, b) => a.date.localeCompare(b.date))
+                .slice(0, 3); // Show next 3 events
+
+            // Format date as "Month Day, Year"
+            function formatDate(dateStr) {
+                const d = new Date(dateStr);
+                return d.toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' });
+            }
+
+            // Build HTML
+            const ul = document.querySelector('.events-list');
+            if (ul) {
+                ul.innerHTML = '';
+                if (upcoming.length === 0) {
+                    ul.innerHTML = '<li>No upcoming events.</li>';
+                } else {
+                    upcoming.forEach(ev => {
+                    ul.innerHTML += `<li>
+                        <a href="events.html?date=${encodeURIComponent(ev.date)}">
+                            <strong>${formatDate(ev.date)}:</strong> ${ev.title}
+                        </a> - ${ev.desc}
+                    </li>`;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
